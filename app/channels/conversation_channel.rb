@@ -1,6 +1,7 @@
 class ConversationChannel < ApplicationCable::Channel
   def subscribed
-    stream_from "conversation-#{current_user.id}"
+    channel = room(current_user) 
+    stream_from channel
   end
 
   def unsubscribed
@@ -9,10 +10,21 @@ class ConversationChannel < ApplicationCable::Channel
   end
 
   def speak(data) 
+    # str = room(current_user)   
     message_params = data['message'].each_with_object({}) do |el,hash| 
       hash[el.values.first] = el.values.last 
     end 
 
-    Message.create(message_params)   
+    #ActionCable.server.broadcast(
+    #  str,
+    #  message: message_params
+    #) 
+    Message.create(message_params)    
   end
+
+  private 
+
+  def room(user) 
+    "conversation-#{user.id}-channel" 
+  end 
 end
