@@ -6,7 +6,7 @@ to enable real time chatting.
 To deploy this app, follow the below steps: 
 * First of all, [clone this repository](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository). 
 * Next, if you don't have bundler installed,(check this by running 
-    ```bundler --version```, 
+    ```bundler --version```), 
   install [Ruby Version Manager](https://help.dreamhost.com/hc/en-us/articles/217185247-Ruby-Version-Manager-RVM-)(RVM). Also go through [this 
   tutorial](https://help.dreamhost.com/hc/en-us/articles/217185437-How-to-enable-RVM) to enable RVM. Then run 
   ``` 
