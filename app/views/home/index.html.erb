@@ -15,7 +15,7 @@
       <div class="panel-body">
         <ul>
           <% @users.each do |user| %>
-            <li><%= button_to user.email, conversations_path(user_id: user), remote: true %></li>
+            <li><%= button_to user.email, conversations_path(user_id: user), remote: true %><span class="<%= user.active_user == true ? "online" : "offline" %> <%= user.id %>">● </span></li> 
           <% end %>
         </ul>
       </div>
