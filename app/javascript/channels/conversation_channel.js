@@ -1,9 +1,9 @@
 import consumer from "./consumer"
-
+ 
 const conversation = consumer.subscriptions.create("ConversationChannel", {
   connected() {
     // Called when the subscription is ready for use on the server 
-    // console.log("Hello");
+    //console.log("Hello");
   },
 
   disconnected() {
@@ -12,6 +12,7 @@ const conversation = consumer.subscriptions.create("ConversationChannel", {
 
   received(data) {
     // Called when there's incoming data on the websocket for this channel
+    //console.log(`Bello ${data['conversation_id']}`);
     var conversation = $('#conversations-list').find("[data-conversation-id='" + data['conversation_id'] + "']");
     
     if(data['window'] !==  undefined) {
@@ -46,6 +47,16 @@ const conversation = consumer.subscriptions.create("ConversationChannel", {
     });
   }
 });
+
+  $(document).on('keypress','#message_input', function(e) {
+    var code = (e.keyCode ? e.keyCode : e.which);
+    if(code == 13) {
+      e.preventDefault();
+      var values = $(this).parent().serializeArray();
+      conversation.speak(values);
+      $(this).parent().trigger('reset'); 
+    } 
+  });
 
   $(document).on('submit','.new_message', function(e) {
     e.preventDefault();
