@@ -3,7 +3,7 @@
 This is a basic facebook-like chat app built on Ruby On Rails, which makes the use of WebSockets (in the form of Rails ActionCable) 
 to enable real time chatting. 
 ## Local Deployment 
-To deploy this app on your local system, follow the below steps: 
+To deploy this app on your local system, follow the below steps (specific to Linux): 
 * First of all, [clone this repository](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository). 
 * Next, if you don't have bundler installed,(check this by running 
     ```bundler --version```), 
