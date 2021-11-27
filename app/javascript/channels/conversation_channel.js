@@ -42,9 +42,10 @@ const conversation = consumer.subscriptions.create("ConversationChannel", {
   },
 
   speak: function(message) {
-    return this.perform('speak',{
-      message: message
-    });
+    if(message[2].value.length)
+      return this.perform('speak',{
+        message: message
+      });
   }
 });
 
