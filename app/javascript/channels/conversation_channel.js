@@ -51,7 +51,7 @@ const conversation = consumer.subscriptions.create("ConversationChannel", {
 
   $(document).on('keypress','#message_input', function(e) {
     var code = (e.keyCode ? e.keyCode : e.which);
-    if(code == 13) {
+    if(code === 13) {
       e.preventDefault();
       var values = $(this).parent().serializeArray();
       conversation.speak(values);
